@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | AUTO ELITE Detailing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: #0A0A0A;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .login-container {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .login-card {
+        background: #111111;
+        border-radius: 28px;
+        padding: 48px 36px;
+        border: 1px solid #2A2A2A;
+        transition: all 0.3s ease;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .login-header {
+        text-align: center;
+        margin-bottom: 36px;
+    }
+
+    .login-logo {
+        font-size: 2rem;
+        font-weight: 500;
+        letter-spacing: -0.5px;
+        color: #D32F2F;
+        margin-bottom: 20px;
+    }
+
+    .login-logo i {
+        font-size: 1.8rem;
+        color: #D32F2F;
+        margin-right: 6px;
+    }
+
+    .login-header h2 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #FFFFFF;
+        margin-bottom: 8px;
+        letter-spacing: -0.3px;
+    }
+
+    .login-header p {
+        color: #888888;
+        font-size: 0.8rem;
+        font-weight: 400;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #CCCCCC;
+        font-weight: 500;
+        font-size: 0.75rem;
+        letter-spacing: 0.3px;
+    }
+
+    .form-group label i {
+        margin-right: 6px;
+        color: #D32F2F;
+        font-size: 0.7rem;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 12px 16px;
+        background: #1A1A1A;
+        border: 1px solid #2A2A2A;
+        border-radius: 100px;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.85rem;
+        color: #FFFFFF;
+        transition: all 0.3s ease;
+    }
+
+    .form-group input:focus {
+        outline: none;
+        border-color: #D32F2F;
+    }
+
+    .form-group input::placeholder {
+        color: #555555;
+    }
+
+    .btn-login {
+        width: 100%;
+        background: #D32F2F;
+        border: none;
+        padding: 12px;
+        border-radius: 100px;
+        font-weight: 500;
+        font-size: 0.85rem;
+        color: #FFFFFF;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 8px;
+    }
+
+    .btn-login:hover {
+        background: #B71C1C;
+        transform: translateY(-1px);
+    }
+
+    .back-link {
+        text-align: center;
+        margin-top: 24px;
+    }
+
+    .back-link a {
+        color: #888888;
+        text-decoration: none;
+        font-size: 0.75rem;
+        transition: color 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .back-link a:hover {
+        color: #D32F2F;
+    }
+
+    .message {
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 100px;
+        text-align: center;
+        font-weight: 500;
+        font-size: 0.75rem;
+        animation: slideDownFade 0.3s ease;
+        display: none;
+    }
+
+    .message.error {
+        background: rgba(211,47,47,0.1);
+        color: #D32F2F;
+        border: 1px solid rgba(211,47,47,0.2);
+        display: block;
+    }
+
+    .message.success {
+        background: rgba(76,175,80,0.1);
+        color: #4CAF50;
+        border: 1px solid rgba(76,175,80,0.2);
+        display: block;
+    }
+
+    @keyframes slideDownFade {
+        from {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .login-card {
+            padding: 36px 28px;
+        }
+        
+        .login-logo {
+            font-size: 1.6rem;
+        }
+        
+        .login-header h2 {
+            font-size: 1.3rem;
+        }
+        
+        .form-group input {
+            padding: 10px 14px;
+            font-size: 0.8rem;
+        }
+        
+        .btn-login {
+            padding: 10px;
+            font-size: 0.8rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="login-logo">
+                    <i class="fas fa-spray-can-sparkles"></i> AUTO ELITE
+                </div>
+                <h2>Panel de Administración</h2>
+                <p>Ingresa tus credenciales para gestionar citas</p>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username"><i class="fas fa-user"></i> Usuario</label>
+                    <input type="text" id="username" name="username" placeholder="autoelite" autocomplete="off" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i> Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Acceder al Panel
+                </button>
+            </form>
+
+            <div id="loginMessage" class="message"></div>
+
+            <div class="back-link">
+                <a href="/frontend/index.html">
+                    <i class="fas fa-arrow-left"></i> Volver al inicio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Credenciales actualizadas para AUTO ELITE
+        const ADMIN_CREDENTIALS = {
+            username: 'autoelite',
+            password: 'elite2026'
+        };
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const messageDiv = document.getElementById('loginMessage');
+            
+            if (!username || !password) {
+                messageDiv.textContent = '❌ Por favor, completa todos los campos';
+                messageDiv.className = 'message error';
+                return;
+            }
+            
+            if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+                localStorage.setItem('adminLoggedIn', 'true');
+                localStorage.setItem('adminLoginTime', new Date().toISOString());
+                
+                messageDiv.textContent = '✅ ¡Acceso concedido! Redirigiendo...';
+                messageDiv.className = 'message success';
+                
+                setTimeout(() => {
+                    window.location.href = 'admin.html';
+                }, 1000);
+            } else {
+                messageDiv.textContent = '❌ Usuario o contraseña incorrectos';
+                messageDiv.className = 'message error';
+                document.getElementById('password').value = '';
+            }
+        });
+    </script>
+</body>
+</html>

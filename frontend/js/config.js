@@ -65,10 +65,15 @@ const BUSINESS_CONFIG = {
         "Sub/Truck"
     ],
     
-    api: {
-        url: 'http://localhost:5000/api'
-    },
-    
+   api: {
+    url: (() => {
+        const isProduction = window.location.hostname !== 'localhost' && 
+                             !window.location.hostname.includes('127.0.0.1');
+        return isProduction 
+            ? 'https://autoelite-backend-vb5a.onrender.com/api'  // 👈 TU URL
+            : 'http://localhost:5000/api';
+    })()
+},
     messages: {
         whatsappMessage: (data) => {
             return `Hola 👋, tu cita en AUTO ELITE ha sido agendada 🚗✨

@@ -1,6 +1,16 @@
-
 const ApiService = (function() {
-    const API_URL = 'http://localhost:5000/api';
+    // 👇 URL DINÁMICA - Funciona en local y producción
+    const API_URL = (() => {
+        const isProduction = window.location.hostname !== 'localhost' && 
+                             !window.location.hostname.includes('127.0.0.1') &&
+                             !window.location.hostname.includes('file://');
+        
+        if (isProduction) {
+            // ⚠️ CAMBIA ESTA URL POR LA DE RENDER (después de desplegar)
+            return 'https://autoelite-backend-vb5a.onrender.com';
+        }
+        return 'http://localhost:5000/api';
+    })();
     
     async function createAppointment(appointmentData) {
         try {
@@ -71,4 +81,9 @@ const ApiService = (function() {
 })();
 
 console.log('✅ ApiService cargado correctamente');
-console.log('📍 API_URL:', 'http://localhost:5000/api');
+console.log('📍 API_URL:', (() => {
+    const isProduction = window.location.hostname !== 'localhost' && 
+                         !window.location.hostname.includes('127.0.0.1') &&
+                         !window.location.hostname.includes('file://');
+    return isProduction ? 'https://autoelite-backend-vb5a.onrender.com' : 'http://localhost:5000/api';
+})());

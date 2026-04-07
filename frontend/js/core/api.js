@@ -7,7 +7,7 @@ const ApiService = (function() {
         
         if (isProduction) {
             // ⚠️ CAMBIA ESTA URL POR LA DE RENDER (después de desplegar)
-            return 'https://autoelite-backend-vb5a.onrender.com';
+            return 'https://autoelite-backend-vb5a.onrender.com/api';
         }
         return 'http://localhost:5000/api';
     })();
